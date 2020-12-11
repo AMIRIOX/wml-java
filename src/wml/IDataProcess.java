@@ -10,5 +10,5 @@ enum dataType{
 public interface IDataProcess {
 	boolean checkFileExits(dataType type);
 	Integer readData(dataType type);
-	void modifyData(dataType type, Integer inc);
+	void modifyData(dataType type, Integer inc, boolean changeFather);
 }

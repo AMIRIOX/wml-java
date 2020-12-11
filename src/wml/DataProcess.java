@@ -27,12 +27,30 @@ public class DataProcess implements IDataProcess {
 	}
 
 	@Override
-	public void modifyData(dataType type, Integer inc) {
+	public void modifyData(dataType type, Integer inc, boolean changeFather) {
 		Integer originalValue;
 		if(fileProcessor.isEmpty(type)) originalValue = 0;
 		else originalValue = readData(type);
 		originalValue += inc;
 		fileProcessor.output(type, originalValue.toString());
+		if(type == dataType.CONTRIBUTION && changeFather) modifyData(dataType.AHCI, inc, true);
+	}
+	
+	// owner method (but not private)
+	public Integer totalDays() {
+		return readData(dataType.DAYS);
+	}
+	public Integer totalAHCI() {
+		return readData(dataType.AHCI);
+	}
+	public Integer todayContribution() {
+		return readData(dataType.CONTRIBUTION);
+	}
+	public void refresh() {
+		// TODO: add log and record
+		fileProcessor.clearFile(dataType.CONTRIBUTION);
+		modifyData(dataType.CONTRIBUTION, 0, false);
+		modifyData(dataType.DAYS, 1, false);
 	}
 
 }
