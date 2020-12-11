@@ -42,16 +42,23 @@ public class Client {
 //		fpc.output(dataType.LOG, "21");
 //		res = fpc.input(dataType.LOG);
 //		System.out.println(res);
+				
+//		 Time Process Test, OK
+//		TimeProcess tp = new TimeProcess();
+//		System.out.println(tp.calcTimeDiffSec(tp.getTime()));
 		
-		instRef = new Reflection();
 //		instMap.put("test", instRef.test);
+		instRef = new Reflection();
 		instMap.put("-d", instRef.modifyValue);
 		instMap.put("-t", instRef.modifyValue);
 		instMap.put("-v", instRef.showVersion);
+		instMap.put("-m", instRef.showTimeRemain);
+		instMap.put("-r", instRef.refresh);
 		
 		int result = instMap.get(args[0]).exec(args);
 		if(result != 0) {
 			System.err.print("ERROR.");
 		}
+
 	}
 }

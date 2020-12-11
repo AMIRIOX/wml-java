@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 public class Reflection {
 	// TODO: JNI call C function `system`
 	private Map<String, dataType> instTypeMap = new HashMap<String, dataType>();
-	private static final String version = "0.0.5";	
+	private static final String version = "0.0.6";	
 	private static final String versionInfo = 
-		"Java refactored version of wml. Refactored version: 0.0.1. \n OPEN SOURCE AND FREE.";
+		"Java refactored version of wml. Refactored version: 0.0.2. \n OPEN SOURCE AND FREE.";
 	Reflection() {
 		instTypeMap.put("-d", dataType.CONTRIBUTION);
 		instTypeMap.put("-t", dataType.TIREDNESS);
@@ -56,7 +56,7 @@ public class Reflection {
 	public Commands<String[]> modifyValue = (_args) -> {
 		if(_args.length < 2) return 4;
 		DataProcess dp = new DataProcess(new FileProcess());
-		dp.modifyData(instTypeMap.get(_args[0]), Integer.parseInt(_args[1]));
+		dp.modifyData(instTypeMap.get(_args[0]), Integer.parseInt(_args[1]), true);
 		return 0;
 	};
 	
@@ -64,6 +64,19 @@ public class Reflection {
 		System.out.println("wml version "+version+". ");
 		System.out.println("specific info: \n"+versionInfo);
 		// TODO: build info
+		return 0;
+	};
+	
+	public Commands<String[]> showTimeRemain = (_args) -> {
+		TimeProcess tp = new TimeProcess();
+		simpleTime st = tp.calcTimeDiff(tp.getTime());
+		System.out.println(st.hour + "hrs " + st.minute + "mins remaining.");
+		return 0;
+	};
+	
+	public Commands<String[]> refresh = (_args) -> {
+		DataProcess dp = new DataProcess(new FileProcess());
+		dp.refresh();
 		return 0;
 	};
 }
