@@ -13,13 +13,13 @@ public class FileProcess implements IFileProcess {
 	FileProcess() {
 		// TODO: support settings file.
 		fileEnumMap = new HashMap<dataType, String>();
-		fileEnumMap.put(dataType.AHCI, "/disk02/test/achieve.data");
-		fileEnumMap.put(dataType.CONTRIBUTION, "/disk02/test/contribution.data");
-		fileEnumMap.put(dataType.TIREDNESS, "/disk02/test/tiredness.data");
-		fileEnumMap.put(dataType.LOG, "/disk02/test/.wml.log");
-		fileEnumMap.put(dataType.RECORD, "/disk02/test/.record.log");
-		fileEnumMap.put(dataType.DAYS, "/disk02/test/days.txt");
-		fileEnumMap.put(dataType.DAYSREC, "/disk02/test/daysrec.txt");
+		fileEnumMap.put(dataType.AHCI, "/disk01/apps/wml/achieve.data");
+		fileEnumMap.put(dataType.CONTRIBUTION, "/disk01/apps/wml/contribution.data");
+		fileEnumMap.put(dataType.TIREDNESS, "/disk01/apps/wml/tiredness.data");
+		fileEnumMap.put(dataType.LOG, "/disk01/apps/wml/.wml.log");
+		fileEnumMap.put(dataType.RECORD, "/disk01/apps/wml/.record.log");
+		fileEnumMap.put(dataType.DAYS, "/disk01/apps/wml/days.txt");
+		fileEnumMap.put(dataType.DAYSREC, "/disk01/apps/wml/daysrec.txt");
 		
 		for(dataType files : dataType.values()) {
 			File creator = new File(fileEnumMap.get(files));

@@ -71,13 +71,13 @@ public class Display implements IDisplay {
 	public void displayAHCI() {
 		Integer ahci = dp.totalAHCI();
 		outputColor("-> Achieve: ", colorType.BLUE, colorType.TRANS, false);
-		System.out.println(ahci);
+		System.out.println(ahci.intValue());
 	}
 
 	public void displayContribution() {
 		outputColor("-> Contribution: ", colorType.BLUE, colorType.TRANS, false);		
 		Integer contribution = dp.todayContribution();
-		System.out.println(contribution);
+		System.out.println(contribution.intValue());
 //		if (contribution > 100)
 //			contribution = 100;
 		double percent = contribution.doubleValue() / 100.0;
@@ -93,7 +93,7 @@ public class Display implements IDisplay {
 	public void displayTiredness() {
 		outputColor("-> Tiredness: ", colorType.BLUE, colorType.TRANS, false);		
 		Integer tiredness = dp.tiredness();
-		System.out.println(tiredness);
+		System.out.println(tiredness.intValue());
 //		if (tiredness > 100)
 //			tiredness = 100;
 		double percent = tiredness.doubleValue() / 100.0;
@@ -129,6 +129,5 @@ public class Display implements IDisplay {
 		displayContribution();
 		displayTiredness();
 		showTimeRemain();
-		// TODO: Time remaining display
 	}
 }

@@ -50,7 +50,8 @@ public class DataProcess implements IDataProcess {
 		return readData(dataType.TIREDNESS);
 	}
 	public void refresh() {
-		// TODO: add log and record
+		Recorder recorder = new Recorder();
+		recorder.addSummary();
 		fileProcessor.clearFile(dataType.CONTRIBUTION);
 		modifyData(dataType.CONTRIBUTION, 0, false);
 		modifyData(dataType.DAYS, 1, false);
