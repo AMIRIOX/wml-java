@@ -12,7 +12,7 @@ public class TimeProcess implements ITimeProcess {
 		standardTime.setHours(22);
 		standardTime.setMinutes(30);
 		standardTime.setSeconds(0);
-		System.out.println(standardTime.toLocaleString());
+//		System.out.println(standardTime.toLocaleString());
 	}
 	@Override
 	public Date getTime() {

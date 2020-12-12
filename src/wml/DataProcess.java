@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class DataProcess implements IDataProcess {
-	FileProcess fileProcessor;
+	private FileProcess fileProcessor;
 	DataProcess(FileProcess _fileProcessor) {
 		fileProcessor = _fileProcessor;
 	}
@@ -45,6 +45,9 @@ public class DataProcess implements IDataProcess {
 	}
 	public Integer todayContribution() {
 		return readData(dataType.CONTRIBUTION);
+	}
+	public Integer tiredness() {
+		return readData(dataType.TIREDNESS);
 	}
 	public void refresh() {
 		// TODO: add log and record
