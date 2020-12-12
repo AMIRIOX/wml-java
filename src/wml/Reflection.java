@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 public class Reflection {
 	// TODO: JNI call C function `system`
 	private Map<String, dataType> instTypeMap = new HashMap<String, dataType>();
-	private static final String version = "0.0.6";	
+	private static final String version = "0.0.7";	
 	private static final String versionInfo = 
-		"Java refactored version of wml. Refactored version: 0.0.2. \n OPEN SOURCE AND FREE.";
+		"Java refactored version of wml. Refactored version: 0.0.3. \n OPEN SOURCE AND FREE.";
 	Reflection() {
 		instTypeMap.put("-d", dataType.CONTRIBUTION);
 		instTypeMap.put("-t", dataType.TIREDNESS);
@@ -77,6 +77,12 @@ public class Reflection {
 	public Commands<String[]> refresh = (_args) -> {
 		DataProcess dp = new DataProcess(new FileProcess());
 		dp.refresh();
+		return 0;
+	};
+	
+	public Commands<String[]> displayStatus = (_args) -> {
+		Display disp = new Display();
+		disp.display();
 		return 0;
 	};
 }
