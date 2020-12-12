@@ -8,5 +8,5 @@ enum colorType{
 
 public interface IDisplay {
 	void outputColor(String s, colorType color, colorType back, boolean isMid);
-	void showStatusBar(double percent, colorType color);
+	void showStatusBar(double percent, colorType color, colorType back);
 }
