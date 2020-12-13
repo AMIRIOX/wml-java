@@ -115,12 +115,12 @@ public class Display implements IDisplay {
 		System.out.print((double) Math.round((remainPercent * 100) * 100) / 100 + "%, ");
 		simpleTime st = tp.calcTimeDiff(now);
 		System.out.println(st.hour + "hrs " + st.minute + "mins remaining. ");
-		if (remainPercent>=0 && remainPercent < 0.5) 
-			showStatusBar(1 - remainPercent, colorType.TRANS, colorType.B_GREEN);
-		else if(remainPercent >= 0.5 && remainPercent < 0.65) 
+		if (remainPercent>=0 && remainPercent < 0.45) 
+			showStatusBar(1 - remainPercent, colorType.TRANS, colorType.B_RED);
+		else if(remainPercent >= 0.45 && remainPercent < 0.65) 
 			showStatusBar(1 - remainPercent, colorType.TRANS, colorType.B_BLUE);
 		else if(remainPercent >=0.65 && remainPercent <= 1) 
-			showStatusBar(1 - remainPercent, colorType.TRANS, colorType.B_RED);
+			showStatusBar(1 - remainPercent, colorType.TRANS, colorType.B_GREEN);
 		System.out.println();
 	}
 	public void display() {
